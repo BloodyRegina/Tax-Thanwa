@@ -13,12 +13,12 @@ const Results = () => {
   let expenses = Math.min(salaryIncomeYear * 0.5, 100000);
 
   const baby = parseInt(formData.baby || 0);
-  const social = Math.min(parseFloat(formData.social || 0), 30000);
+  const social = Math.min(parseFloat(formData.social * 12 || 0), 30000);
   const protect = Math.min(parseFloat(formData.protect || 0), 100000);
   const brDeduction = Math.min(baby * 30000, 60000);
 
   const totalDeduction = 60000 + brDeduction + social + protect;
-  const income = salaryIncomeYear - expenses - totalDeduction;
+  const income = salaryIncomeYear - expenses - (totalDeduction);
 
   const taxRate = income <= 100000 ? 0 :
                   income <= 300000 ? 0.05 :
